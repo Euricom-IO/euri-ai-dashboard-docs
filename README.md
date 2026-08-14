@@ -69,10 +69,10 @@ Run with `docker compose up -d`, then open http://localhost:3000.
 | `DATABASE_URL` | yes | — | Postgres connection string |
 | `BETTER_AUTH_SECRET` | yes | — | random secret, e.g. `openssl rand -hex 32` |
 | `BETTER_AUTH_URL` | yes | — | public base URL of the dashboard |
-| `APP_URL` | no | `http://localhost:3000` | used in emails/links sent by the dashboard — set this to your real public URL |
 | `SENDGRID_API_KEY` | yes | — | needed to send login/OTP emails |
-| `SENDGRID_FROM_EMAIL` | no | `noreply@euri.com` | |
 | `BOOTSTRAP_ADMIN_DOMAIN` | yes | — | email domain allowed to self-register on an empty database; the first user for it becomes global admin — unset once bootstrapped |
+| `APP_URL` | no | `http://localhost:3000` | used in emails/links sent by the dashboard — set this to your real public URL |
+| `SENDGRID_FROM_EMAIL` | no | `noreply@euri.com` | |
 | `PORT` | no | `3000` | |
 | `LOG_LEVEL` | no | `info` | pino level |
 | `SUBSCRIPTION_STANDARD_EUR` | no | `21.04` | cost projection input |
