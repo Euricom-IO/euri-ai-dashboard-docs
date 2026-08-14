@@ -1,9 +1,7 @@
 # Euri AI Ops — Docker images
 
 Container images for **Euri AI Ops**, an observability dashboard for Claude
-Code and GitHub Copilot usage. This repo hosts consumer-facing docs for the
-published images; for source code, issues, and contributing, see
-[Euricom-IO/euri-ai-dashboard](https://github.com/Euricom-IO/euri-ai-dashboard).
+Code and GitHub Copilot usage.
 
 Two images are published:
 
@@ -12,8 +10,9 @@ Two images are published:
 | `ghcr.io/euricom-io/ai-ops-dashboard` | Web dashboard (TanStack Start) | `3000` |
 | `ghcr.io/euricom-io/ai-ops-otel-server` | OTLP ingest server (Hono + gRPC) | `4318` |
 
-Both require a Postgres database (schema managed by Drizzle migrations, run
-automatically by the otel-server image on startup).
+Both require a Postgres database. The `ai-ops-otel-server` image runs the
+database schema migrations automatically on startup — no separate migration
+step needed.
 
 ## Quick start (docker compose)
 
