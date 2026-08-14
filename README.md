@@ -64,18 +64,19 @@ Run with `docker compose up -d`, then open http://localhost:3000.
 
 ### `ai-ops-dashboard`
 
-| Variable | Required | Notes |
-| --- | --- | --- |
-| `DATABASE_URL` | yes | Postgres connection string |
-| `BETTER_AUTH_SECRET` | yes | random secret, e.g. `openssl rand -hex 32` |
-| `BETTER_AUTH_URL` | yes | public base URL of the dashboard |
-| `APP_URL` | yes | used in emails/links sent by the dashboard |
-| `SENDGRID_API_KEY` | yes | needed to send login/OTP emails |
-| `SENDGRID_FROM_EMAIL` | no | default `noreply@euri.com` |
-| `BOOTSTRAP_ADMIN_DOMAIN` | no | email domain allowed to self-register on an empty database; the first user for it becomes global admin — unset once bootstrapped |
-| `PORT` | no | default `3000` |
-| `LOG_LEVEL` | no | pino level, default `info` |
-| `SUBSCRIPTION_STANDARD_EUR` / `SUBSCRIPTION_PREMIUM_EUR` | no | cost projection inputs |
+| Variable | Required | Default | Notes |
+| --- | --- | --- | --- |
+| `DATABASE_URL` | yes | — | Postgres connection string |
+| `BETTER_AUTH_SECRET` | yes | — | random secret, e.g. `openssl rand -hex 32` |
+| `BETTER_AUTH_URL` | yes | — | public base URL of the dashboard |
+| `APP_URL` | yes | — | used in emails/links sent by the dashboard |
+| `SENDGRID_API_KEY` | yes | — | needed to send login/OTP emails |
+| `SENDGRID_FROM_EMAIL` | no | `noreply@euri.com` | |
+| `BOOTSTRAP_ADMIN_DOMAIN` | no | unset | email domain allowed to self-register on an empty database; the first user for it becomes global admin — unset once bootstrapped |
+| `PORT` | no | `3000` | |
+| `LOG_LEVEL` | no | `info` | pino level |
+| `SUBSCRIPTION_STANDARD_EUR` | no | `21.04` | cost projection input |
+| `SUBSCRIPTION_PREMIUM_EUR` | no | `105.23` | cost projection input |
 
 ### `ai-ops-otel-server`
 
