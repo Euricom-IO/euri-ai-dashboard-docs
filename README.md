@@ -115,11 +115,6 @@ the configured `API_TOKEN` as a bearer token. Add this to `.claude/settings.json
 `OTEL_RESOURCE_ATTRIBUTES` is optional — any `key=value` pairs you add there
 show up as extra attributes on the ingested telemetry.
 
-See the main repo's
-[docs/environment.md](https://github.com/Euricom-IO/euri-ai-dashboard/blob/main/docs/environment.md)
-and [docs/otel-server-github.md](https://github.com/Euricom-IO/euri-ai-dashboard/blob/main/docs/otel-server-github.md)
-for exporter configuration details.
-
 ## Tags
 
 Images are tagged with the release version (e.g. `0.3.0`) and `latest`.
