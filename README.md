@@ -93,9 +93,8 @@ automatically — no separate migration step needed.
 
 ## Sending telemetry
 
-Point Claude Code and GitHub Copilot's OTLP exporters at
-`http://<otel-server-host>:4318`, with the configured `API_TOKEN` as a
-bearer token. See the main repo's
+Point Claude Code's OTLP exporter at `http://<otel-server-host>:4318`, with
+the configured `API_TOKEN` as a bearer token. See the main repo's
 [docs/environment.md](https://github.com/Euricom-IO/euri-ai-dashboard/blob/main/docs/environment.md)
 and [docs/otel-server-github.md](https://github.com/Euricom-IO/euri-ai-dashboard/blob/main/docs/otel-server-github.md)
 for exporter configuration details.
