@@ -86,7 +86,6 @@ Run with `docker compose up -d`, then open http://localhost:3000.
 | `API_TOKEN` | yes | bearer token required on incoming OTLP requests (`Authorization: Bearer <API_TOKEN>`) |
 | `PORT` | no | HTTP ingest port, default `4318` |
 | `LOG_LEVEL` | no | pino level, default `info` |
-| `GITHUB_TOKEN` | only for the Copilot backfill script | GitHub PAT with org Copilot metrics/billing read access |
 
 On startup, `ai-ops-otel-server` runs the Postgres schema migrations
 automatically — no separate migration step needed.
