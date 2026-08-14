@@ -80,12 +80,12 @@ Run with `docker compose up -d`, then open http://localhost:3000.
 
 ### `ai-ops-otel-server`
 
-| Variable | Required | Notes |
-| --- | --- | --- |
-| `DATABASE_URL` | yes | Postgres connection string |
-| `API_TOKEN` | yes | bearer token required on incoming OTLP requests (`Authorization: Bearer <API_TOKEN>`) |
-| `PORT` | no | HTTP ingest port, default `4318` |
-| `LOG_LEVEL` | no | pino level, default `info` |
+| Variable | Required | Default | Notes |
+| --- | --- | --- | --- |
+| `DATABASE_URL` | yes | — | Postgres connection string |
+| `API_TOKEN` | yes | — | bearer token required on incoming OTLP requests (`Authorization: Bearer <API_TOKEN>`) |
+| `PORT` | no | `4318` | HTTP ingest port |
+| `LOG_LEVEL` | no | `info` | pino level |
 
 On startup, `ai-ops-otel-server` runs the Postgres schema migrations
 automatically — no separate migration step needed.
