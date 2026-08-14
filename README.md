@@ -75,7 +75,6 @@ Run with `docker compose up -d`, then open http://localhost:3000.
 | `BOOTSTRAP_ADMIN_DOMAIN` | no | email domain allowed to self-register on an empty database; the first user for it becomes global admin — unset once bootstrapped |
 | `PORT` | no | default `3000` |
 | `LOG_LEVEL` | no | pino level, default `info` |
-| `FEATURE_EXTENDED_PERIOD` | no | feature flag, default off |
 | `SUBSCRIPTION_STANDARD_EUR` / `SUBSCRIPTION_PREMIUM_EUR` | no | cost projection inputs |
 
 ### `ai-ops-otel-server`
