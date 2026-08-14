@@ -37,10 +37,11 @@ services:
     environment:
       PORT: 3000
       DATABASE_URL: postgresql://claude:claude@postgres:5432/claude_dashboard
-      BETTER_AUTH_SECRET: <random 32+ char secret, e.g. `openssl rand -hex 32`>
-      BETTER_AUTH_URL: http://localhost:3000
+      AUTH_SECRET: <random 32+ char secret, e.g. `openssl rand -hex 32`>
+      AUTH_URL: http://localhost:3000
       APP_URL: http://localhost:3000
-      SENDGRID_API_KEY: <your SendGrid key>
+      SMTP_URL: <smtp connection string, e.g. smtps://apikey:<your SendGrid key>@smtp.sendgrid.net:465>
+      SMTP_FROM_EMAIL: noreply@euri.com
     depends_on:
       postgres:
         condition: service_healthy
@@ -67,12 +68,16 @@ Run with `docker compose up -d`, then open http://localhost:3000.
 | Variable | Required | Default | Notes |
 | --- | --- | --- | --- |
 | `DATABASE_URL` | yes | — | Postgres connection string |
-| `BETTER_AUTH_SECRET` | yes | — | random secret, e.g. `openssl rand -hex 32` |
-| `BETTER_AUTH_URL` | yes | — | public base URL of the dashboard |
-| `SENDGRID_API_KEY` | yes | — | needed to send login/OTP emails |
+| `AUTH_SECRET` | yes | — | random secret, e.g. `openssl rand -hex 32` |
+| `AUTH_URL` | yes | — | public base URL of the dashboard |
+| `SMTP_URL` | yes | — | SMTP connection string used to send login/OTP/invitation emails, e.g. `smtps://apikey:<key>@smtp.sendgrid.net:465` for SendGrid; takes precedence over the individual `SMTP_*` fields below |
 | `BOOTSTRAP_ADMIN_DOMAIN` | yes | — | email domain allowed to self-register on an empty database; the first user for it becomes global admin — unset once bootstrapped |
+| `SMTP_HOST` | no | — | SMTP server host — alternative to `SMTP_URL` |
+| `SMTP_PORT` | no | `587` | `465` is treated as implicit TLS |
+| `SMTP_USER` | no | — | SMTP auth username |
+| `SMTP_PASSWORD` | no | — | SMTP auth password |
+| `SMTP_FROM_EMAIL` | no | `noreply@{BOOTSTRAP_ADMIN_DOMAIN}` | from address for outgoing emails; sending fails if `BOOTSTRAP_ADMIN_DOMAIN` is also unset |
 | `APP_URL` | no | `http://localhost:3000` | used in emails/links sent by the dashboard — set this to your real public URL |
-| `SENDGRID_FROM_EMAIL` | no | `noreply@euri.com` | |
 | `PORT` | no | `3000` | |
 | `LOG_LEVEL` | no | `info` | pino level |
 | `SUBSCRIPTION_STANDARD_EUR` | no | `21.04` | cost projection input |
