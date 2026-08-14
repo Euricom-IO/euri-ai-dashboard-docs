@@ -94,7 +94,28 @@ automatically — no separate migration step needed.
 ## Sending telemetry
 
 Point Claude Code's OTLP exporter at `http://<otel-server-host>:4318`, with
-the configured `API_TOKEN` as a bearer token. See the main repo's
+the configured `API_TOKEN` as a bearer token. Add this to `.claude/settings.json`
+(user, project, or managed — see [Claude Code settings](https://code.claude.com/docs/en/settings)):
+
+```json
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/json",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://<otel-server-host>:4318",
+    "OTEL_EXPORTER_OTLP_HEADERS": "Authorization=Bearer <API_TOKEN>",
+    "OTEL_RESOURCE_ATTRIBUTES": "department=engineering,cost_center=eng-123"
+  }
+}
+```
+
+`OTEL_RESOURCE_ATTRIBUTES` is optional — any `key=value` pairs you add there
+show up as extra attributes on the ingested telemetry.
+
+See the main repo's
 [docs/environment.md](https://github.com/Euricom-IO/euri-ai-dashboard/blob/main/docs/environment.md)
 and [docs/otel-server-github.md](https://github.com/Euricom-IO/euri-ai-dashboard/blob/main/docs/otel-server-github.md)
 for exporter configuration details.
